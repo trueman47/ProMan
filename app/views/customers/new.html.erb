@@ -1,7 +1,7 @@
 
 <%= form_for :customer, url: customers_path do |f| %>
   <p>
-    <%= f.label :CustomerName %><br>
+    <%= f.label :Name %><br>
     <%= f.text_field :CustomerName %>
   </p>
   
@@ -29,3 +29,5 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Back', customers_path %>

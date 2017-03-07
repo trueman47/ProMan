@@ -8,14 +8,21 @@ class CustomersController < ApplicationController
        @customer = Customer.find(params[:id]) 
     end
     
+    def edit
+       @customer = Customer.find(params[:id]) 
+    end
+    
     def new 
         
     end
     
     def create 
         @customer = Customer.new(customer_params)
-        @customer.save
-        redirect_to @customer
+        if @customer.save
+            redirect_to @customer
+        else
+            render 'new'
+        end
     end
     
     private 
