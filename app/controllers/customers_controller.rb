@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
     end
     
     def new 
-        
+        @customer = Customer.new
     end
     
     def create 
@@ -23,6 +23,13 @@ class CustomersController < ApplicationController
         else
             render 'new'
         end
+    end
+    
+    def destroy
+       @customer = Customer.find(params[:id])
+       @customer.destroy
+       
+       redirect_to customers_path
     end
     
     private 

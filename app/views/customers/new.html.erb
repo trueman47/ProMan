@@ -1,5 +1,20 @@
 
 <%= form_for :customer, url: customers_path do |f| %>
+
+<% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@customer.errors.count, "error") %> prohibited
+        this customer from being saved:
+      </h2>
+      <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <p>
     <%= f.label :Name %><br>
     <%= f.text_field :CustomerName %>
@@ -26,7 +41,7 @@
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </p>
 <% end %>
 
