@@ -10,6 +10,7 @@
     <th>Phone</th>
     <th>Notes</th>
     <th>Show</th>
+    <th>Edit</th>
     <th>Delete</th>
   </tr>
  
@@ -21,6 +22,7 @@
         <td><%= customer.Phone %></td>
          <td><%= customer.Notes %></td>
       <td><%= link_to 'Show', customer_path(customer) %></td>
+      <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
       <td><%= link_to 'Delete', customer_path(customer),
                     method: :delete,
                     data: {confirm: 'Are you sure?'} %></td>
